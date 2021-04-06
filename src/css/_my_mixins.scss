@@ -1,0 +1,43 @@
+//variaveis do grid
+$l-device: 992px;
+$m-device: 768px;
+$s-device: 576px;
+
+// Mixin de media-queries
+@mixin d($size) {
+	@if $size == l {
+		@media screen and (min-width: #{$l-device}) {
+			@content;
+		}
+	}
+	@else if $size == m {
+		@media screen and (min-width: #{$m-device}) and (max-width: #{$l-device - 1}) {
+			@content;
+		}
+  	}
+  	@else if $size == s {
+		@media screen and (min-width: #{$s-device}) and (max-width: #{$m-device - 1}) {
+      @content;
+		}
+	}
+	@else if $size == xs {
+		@media screen and (max-width: #{$s-device - 1}) {
+      @content;
+		}
+	}
+	@else if $size == sxs {
+		@media screen and (max-width: #{$m-device - 1}) {
+      @content;
+		}
+	}
+	@else if $size == lm {
+		@media screen and (min-width: #{$m-device}) {
+      @content;
+		}
+	}
+	@if $size == msxs {
+		@media screen and (max-width: #{$l-device - 1}) {
+			@content;
+		}
+	}
+}
